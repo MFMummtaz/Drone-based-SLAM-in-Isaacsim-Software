@@ -1,7 +1,5 @@
-# 🛸 VSLAM Autonomous UAV Simulation Stack
-
 <p align="center">
-  <img src="./images/simulation_snapshot.png" width="70%" alt="1"/>
+  <img src="./images/simulation_snapshot.png" width="50%" alt="1"/>
 </p>
 
 <p align="center">
@@ -10,6 +8,7 @@
   <img src="./images/3d_map.png" width="31%" alt="3"/>
 </p>
 
+# 🛸 VSLAM Autonomous UAV Simulation Stack
 
 An advanced, GPU-accelerated autonomous UAV simulation environment for **GPS-denied navigation**. This repository bridges **NVIDIA Isaac Sim**, **Pegasus Simulator**, and **PX4-Autopilot** with hardware-accelerated **NVIDIA Isaac ROS Visual SLAM** for high-fidelity simulation and perception testing.
 
