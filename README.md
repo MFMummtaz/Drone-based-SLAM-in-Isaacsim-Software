@@ -1,7 +1,11 @@
 # 🛸 VSLAM Autonomous UAV Simulation Stack
 
 <p align="center">
-  <img src="./images/simulation_snapshot.png" width="31%" alt="1"/>
+  <img src="./images/simulation_snapshot.png" width="70%" alt="1"/>
+</p>
+
+<p align="center">
+  <img src="./images/imageseg.png" width="31%" alt="1"/>
   <img src="./images/drone_USD.png" width="31%" alt="2"/>
   <img src="./images/3d_map.png" width="31%" alt="3"/>
 </p>
