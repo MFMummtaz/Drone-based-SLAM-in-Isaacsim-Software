@@ -52,9 +52,9 @@ Install the NVIDIA Container Toolkit to enable GPU acceleration inside your Dock
 - NVIDIA Isaac Sim: Install Isaac Sim (Version 5.1.0) along with its structural assets following the official Isaac Sim Installation Guide. (https://docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/requirements.html)
 - Pegasus Simulator: Clone and build the Pegasus Simulator extension.
 - Cross-linking: Configure the connection layer between Isaac Sim and Pegasus Simulator. (https://github.com/PegasusSimulator/PegasusSimulator)
-- Robot Asset Injection: Copy the modified custom asset file Iris_VSLAM.usd included in this repository to your local directory layout:
+- Robot Asset Injection: Copy the modified custom asset folder /Iris_LIDAR included in this repository to your local directory layout:
 ```bash
-cp Iris_VSLAM.usd /home/mummtaz/PegasusSimulator/extensions/pegasus.simulator/pegasus/simulator/assets/Robots/
+cp /Iris_LIDAR /home/mummtaz/PegasusSimulator/extensions/pegasus.simulator/pegasus/simulator/assets/Robots/
 ```
 
 ### 5. Autopilot & GCS Setup
@@ -72,7 +72,7 @@ Install MOLA ROS2 library inside the Linux system. (https://docs.mola-slam.org/l
 ---
 
 ## 🛠️ Checking
-Import and run simulation of the usd file inside of the /SLAM-LIDAR folder to test whether the drone .USD file already working or not
+Import and run simulation of the new usd file inside of the /SLAM-LIDAR folder by importing the .usd file inside of those folder within the Isaacsim app.
 
 ---
 
