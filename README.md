@@ -103,7 +103,7 @@ Install and run the IsaacROS segmentation package by following the step inside o
 
 ---
 ## 🏁 Final Step
-Fly the drone around the environment to capture the whole features there to make a good resolution 3D map.
+By configurating the QGrounControll app by using joystick as the external controller, we can fly the drone around the environment to capture the whole features there to make a good resolution 3D map.
 
 
 
