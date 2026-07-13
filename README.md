@@ -66,12 +66,12 @@ cp Iris_VSLAM.usd /home/mummtaz/PegasusSimulator/extensions/pegasus.simulator/pe
 Install NVIDIA Isaac ROS Core Components. (https://nvidia-isaac-ros.github.io/getting_started/index.html) 
 - In this project we used Segmentation part for segmenting Human-object inside of the simulation environment
 
-## 🛠️ Build Phase (Crucial & Tricky)
-Build the dedicated VSLAM local tracking container image by executing the following compilation routine:
-```bash
-cd ~/VSLAM-UAV/docker/sim
-./run_docker.sh
-```
+### 7. MOLA Architecture
+Install MOLA ROS2 library inside the Linux system. (https://docs.mola-slam.org/latest/) 
+- In this project we used 3D LiDAR-odometry mapping inside of the simulation environment
+
+## 🛠️ Checking
+Import and run simulation of the usd file inside of the /SLAM-LIDAR folder to test whether the drone .USD file already working or not
 
 ## 🚀 Runtime Execution & Simulation Launch
 To launch the full pipeline, orchestrate your execution using 4 independent terminal sessions:
@@ -82,40 +82,24 @@ Open the QGroundControl interface to track telemetry and missions:
 ./QGroundControl.AppImage
 ```
 
-- 🖥️ Terminal 2: VSLAM UAV Sim & MAVROS Bridge
-Initialize the primary UAV simulation container environment and kick off the MAVROS communication layer:
-```bash
-cd ~/VSLAM-UAV/docker/sim
-./run_docker.sh
+- 🖥️ Terminal 2: Isaacsim App and Pegasus Simulator
+Open Isaacsim app and import the drone .USD files:
+- Put the Iris_LiDAR folder from the repo into Pegasus Simulator repo Assets folder
+- Run the Isaacsim
+- Inside of the Isaacsim software you can use the Pegasus Simulator plugins to load desired Environment and load the Iris_LIDAR drone
+- Start the simulation
 
-# Inside the running docker container:
-cd ~/VSLAM-UAV/sim
-ros2 launch mavrospy.launch.py
+- 🖥️ Terminal 2: MOLA LiDAR Odometry
+Launch the MOLA LiDAR launch file using built-in ROS2 launch command:
+```bash
+ros2 launch mola_lidar_odometry ros2-lidar-odometry.launch.py lidar_topic_name:=/point_cloud
 ```
 
-- 🖥️ Terminal 3: Isaac ROS VSLAM Engine
-Spin up the development environment container workspace and boot up the visual odometry nodes:
-```bash
-cd ${ISAAC_ROS_WS}/src/isaac_ros_common
-./scripts/run_dev.sh -b
-
-# Inside the running developer container:
-cd ${ISAAC_ROS_WS}/VSLAM-UAV/sim
-ros2 launch isaac_ros_visual_slam isaac_ros_visual_slam_isaac_sim.launch.py
-```
-
-- 🖥️ Terminal 4: Data Visualization (RViz2)
-Spin up the visualization environment to view mapping landmarks and estimated trajectory coordinates:
-```bash
-cd ${ISAAC_ROS_WS}/src/isaac_ros_common
-./scripts/run_dev.sh
-
-# Inside the running container:
-rviz2 -d ${ISAAC_ROS_WS}/VSLAM-UAV/sim/isaac_sim.cfg.rviz
-```
+- 🖥️ Terminal 3: Isaac ROS Segmentation Engine
+Install and run the IsaacROS segmentation package by following the step inside of the nvidia-isaac-ros documentation (https://nvidia-isaac-ros.github.io/repositories_and_packages/index.html)
 
 ## 🏁 Final Step
-Launch Isaac Sim locally and configure the active backend engine inside PegasusSimulator to map directly to PX4 utilizing the newly registered VSLAM-Drone vehicle definition.
+Fly the drone around the environment to capture the whole features there to make a good resolution 3D map.
 
 
 
