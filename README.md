@@ -1,5 +1,6 @@
 <p align="center">
   <img src="./images/simulation_snapshot.png" width="50%" alt="1"/>
+  <img src="./images/system_arch.png" width="40%" alt="1"/>
 </p>
 
 <p align="center">
